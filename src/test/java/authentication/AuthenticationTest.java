@@ -43,4 +43,16 @@ public class AuthenticationTest {
 
         }
     }
+
+
+    @Test
+    public void testRealmMD5(){
+        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro-realm-md5.ini");
+        SecurityManager securityManager = factory.getInstance();
+        SecurityUtils.setSecurityManager(securityManager);
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken("zhangsan","111111");
+        subject.login(token);
+        System.out.println(subject.isAuthenticated());
+    }
 }
