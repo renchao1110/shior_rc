@@ -25,7 +25,7 @@ public class AutherizationTest {
 
         System.out.println("认证情况："+subject.isAuthenticated());
 
-        subject.hasRole("role1");
-        subject.isPermitted("user:creat");
+        boolean role1 = subject.hasRole("role1");
+        boolean permitted = subject.isPermitted("user:create");
     }
 }
